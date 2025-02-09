@@ -49,8 +49,8 @@ main {
     align-items: center;
     flex: 1;
     background-image: url("img/kirppari.jpeg");
-    background-size: cover; /* Tai contain, riippuen siitä miten haluat kuvan skaalautuvan */
-    background-repeat: no-repeat; /* Jos et halua kuvan toistuvan */
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .featured-items {
@@ -118,6 +118,12 @@ main {
 .customer-comment {
     font-family: fantasy;
     font-style: italic;
+    border-radius: 8px;
+    padding: 10px;
+    color: rgb(110, 179, 53);
+    background-color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: large;
 }
 
 .sales_statistics {

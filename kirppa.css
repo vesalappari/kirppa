@@ -48,6 +48,9 @@ main {
     flex-direction: column;
     align-items: center;
     flex: 1;
+    background-image: url("img/kirppari.jpeg");
+    background-size: cover; /* Tai contain, riippuen siitä miten haluat kuvan skaalautuvan */
+    background-repeat: no-repeat; /* Jos et halua kuvan toistuvan */
 }
 
 .featured-items {

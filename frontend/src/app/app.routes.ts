@@ -5,9 +5,9 @@ import { MyProductsComponent } from './components/my-products/my-products.compon
 import { StatisticsComponent } from './components/statistics/statistics.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'frontpage', pathMatch: 'full' },
   { path: 'frontpage', component: FrontpageComponent },
   { path: 'my-products', component: MyProductsComponent },
   { path: 'statistics', component: StatisticsComponent },
   { path: 'contact', component: ContactComponent },
-  
 ];

@@ -1,0 +1,20 @@
+<div class="main-container">
+    <label class="show-images-label">
+        <input type="checkbox" [(ngModel)]="showImages"> Näytä kuvat
+    </label>
+    <section class="sales-items">
+        <section class="items">
+            <section class="sales-items">
+                <app-product
+                    *ngFor="let product of products"
+                    [imageUrl]="product.imageUrl"
+                    [altText]="product.altText"
+                    [title]="product.title"
+                    [price]="product.price"
+                    [status]="product.status"
+                    [showImage]="showImages">
+                </app-product>
+            </section>
+        </section>
+    </section>
+</div>

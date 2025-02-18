@@ -47,13 +47,13 @@ nav a:hover {
     background-color: #ddd;
 }
 
-main {
+.main-container {
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 1;
-    background-image: url("img/kirppari.jpeg");
+    background-image: url("/img/kirppari.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -157,6 +157,7 @@ main {
     border: 1px solid #eee;
     border-radius: 4px;
     background-color: #f9f9f9;
+    justify-content: space-between;
 }
 
 .statistic strong {
@@ -228,4 +229,14 @@ footer {
     height: auto;
     margin-inline: 20px;
     border-radius: 10px;
+}
+
+.show-images-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+    padding: 2px 5px;
+    border-radius: 5px;
 }

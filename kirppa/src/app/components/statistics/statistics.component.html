@@ -1,0 +1,30 @@
+<div class="main-container">
+    <div class="sales_statistics">
+        <h2>Myyntitilasto</h2> 
+        <div class="statistic">
+            <strong>Myytyjä tuotteita:</strong> <span class="value">{{ productsSold }} ✅</span>
+        </div>
+        <div class="statistic">
+            <strong>Myymättömiä tuotteita:</strong> <span class="value">{{ unsoldProducts }} 🏷️</span>
+        </div>
+        <div class="statistic">
+            <strong>Myytyjä tuotteita %: </strong> <span class="value">{{ soldPercentageByCount?.toFixed(2) }} %</span>
+        </div>
+        <div class="statistic">
+            <strong>Pöydän hinta:</strong> <span class="value">{{ costOfTable }} €</span>
+        </div>
+        <div class="statistic">
+            <strong>Myyntitulot:</strong> <span class="value">{{ salesRevenue?.toFixed(2) }} €</span>
+        </div>
+        <div class="statistic">
+            <strong>Myyntikate:</strong> <span class="value">{{ profitWithTable?.toFixed(2) }} €</span>
+        </div>
+        
+        <div class="statistic">
+            <strong>Myynnin osuus arvosta:</strong> <span class="value">{{ soldPercentageByPrice?.toFixed(0) }} %</span>
+        </div>
+    </div>
+    <div>
+        <!-- TODO Create diagram to present statistics visually-->
+    </div>
+</div>

@@ -16,12 +16,17 @@ export class AppController {
     return this.appService.getUsers();
   }
 
-  @Post('users')
+  @Post('users/create')
   createUser(
     @Body('name') name: string,
     @Body('email') email: string,
     @Body('password') password: string,
   ): Promise<User> {
     return this.appService.createUser(name, email, password);
+  }
+
+  @Post('users/delete')
+  deleteUser(@Body('id') id: string): Promise<void> {
+    return this.appService.deleteUser(id);
   }
 }

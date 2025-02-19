@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { AppService } from './app.service';
 import { User } from './user.entity';
 
@@ -14,5 +14,14 @@ export class AppController {
   @Get('users')
   getUsers(): Promise<User[]> {
     return this.appService.getUsers();
+  }
+
+  @Post('users')
+  createUser(
+    @Body('name') name: string,
+    @Body('email') email: string,
+    @Body('password') password: string,
+  ): Promise<User> {
+    return this.appService.createUser(name, email, password);
   }
 }

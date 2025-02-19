@@ -57,3 +57,4 @@ test-results/
 
 # Angular environment files
 /src/environments/environment*.ts
+.DS_Store

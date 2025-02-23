@@ -7,9 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  isModalOpen = false;
+
   constructor(private router: Router) {}
 
   navigateToFrontpage() {
     this.router.navigate(['/frontpage']);
+  }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
   }
 }

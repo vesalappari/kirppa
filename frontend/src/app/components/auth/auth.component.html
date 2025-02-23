@@ -1,39 +1,22 @@
-<div class="auth-container">
-    <div class="auth-form">
-        <h2>Login</h2>
-        <form (ngSubmit)="login()">
-            <div class="form-group">
-                <label for="login-email">Email:</label>
-                <input type="email" id="login-email" name="login-email" required>
-            </div>
-            <div class="form-group">
-                <label for="login-password">Password:</label>
-                <input type="password" id="login-password" name="login-password" required>
-            </div>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-
-    <div class="auth-form">
-        <h2>Register</h2>
-        <form (ngSubmit)="register()">
-            <div class="form-group">
-                <label for="register-name">Name:</label>
-                <input type="text" id="register-name" name="register-name" required>
-            </div>
-            <div class="form-group">
-                <label for="register-email">Email:</label>
-                <input type="email" id="register-email" name="register-email" required>
-            </div>
-            <div class="form-group">
-                <label for="register-password">Password:</label>
-                <input type="password" id="register-password" name="register-password" required>
-            </div>
-            <div class="form-group">
-                <label for="register-confirm-password">Confirm Password:</label>
-                <input type="password" id="register-confirm-password" name="register-confirm-password" required>
-            </div>
-            <button type="submit">Register</button>
-        </form>
+<div class="main-container">
+    <div class="auth-container">
+        <div class="auth-form" *ngIf="!isRegister">
+            <h2>Kirjaudu</h2>
+            <input type="email" placeholder="Email" [(ngModel)]="email" required>
+            <input type="password" placeholder="Password" [(ngModel)]="password" required="">
+            <button (click)="login()">Kirjaudu sisään</button>
+            <button (click)="toggleRegister()">Ei tunnusta - rekisteröidy</button>
+            <p *ngIf="loginResponse">{{loginResponse}}</p>
+        </div>
+        
+        <div class="auth-form" *ngIf="isRegister">
+            <h2>Rekisteröidy</h2>
+            <input type="text" placeholder="Name" [(ngModel)]="name">
+            <input type="email" placeholder="Email" [(ngModel)]="email">
+            <input type="password" placeholder="Password" [(ngModel)]="password">
+            <button (click)="register()">Rekisteröidy</button>
+            <button (click)="toggleRegister()">Olen jo käyttäjä - Kirjaudu</button>
+            <p *ngIf="regResponse">{{regResponse}}</p>
+        </div>
     </div>
 </div>

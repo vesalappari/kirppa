@@ -2,10 +2,15 @@
     <h1>Kirppa <img src="img/logo/kirppa.png" alt="Kirppa-logo" class="logo" (click)="navigateToFrontpage()"></h1>
     <!-- <p>Kirpparit kaikille - Tuotteet talteen</p> -->
 </header>
-<div class="burger-menu" (click)="openModal()">&#9776;</div>
+<div class="burger-menu" (click)="openModal()">&#9776;
+  
+</div>
 <div class="modal" [class.open]="isModalOpen">
   <div class="modal-content">
     <span class="close" (click)="closeModal()">&times;</span>
-    <!-- Modal content goes here -->
+    <button *ngIf="!user?.name" (click)="showAuth()">Login</button>
+    <button *ngIf="user?.name" (click)="logout()">Logout</button>
+    <p *ngIf="user?.name">{{user}}</p>
+    <!-- <button (click)="navigateToProfile()">Profile</button> -->
   </div>
 </div>

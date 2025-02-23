@@ -240,3 +240,129 @@ footer {
     padding: 2px 5px;
     border-radius: 5px;
 }
+
+.logo {
+    cursor: pointer;
+}
+
+.burger-menu {
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+  transition: right 0.3s ease;
+}
+
+.modal.open {
+  right: 0;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.close {
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.auth-modal .close {
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.auth-form {
+    width: 45%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.auth-form .form-group {
+    margin-bottom: 15px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.auth-form button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}

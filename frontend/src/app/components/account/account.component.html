@@ -1,9 +1,7 @@
 <div class="main-container">
   <div *ngIf="user?.name" class="account-container">
-    <h2>👤 {{ user?.name }}</h2>
+    <h2>Käyttäjätili</h2>
+    <p>👤 {{ user?.name }}</p>
     <p>✉️ {{ user?.email }}</p>
-  </div>
-  <div *ngIf="!user">
-    <p>Please log in to view your account details.</p>
   </div>
 </div>

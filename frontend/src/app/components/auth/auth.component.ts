@@ -30,11 +30,10 @@ export class AuthComponent {
       if (response.user) {
         this.authService.user = response.user;
         this.authService.setCurrentUser(response.user);
-        this.loginResponse = "Login successful for user " + response.user.name;
         setTimeout(() => {
           this.loginResponse = '';
           this.router.navigate(['/account']);
-        }, 1500);
+        }, 500);
       }
     }, error => {
       this.loginResponse = error.error.message;
@@ -46,7 +45,6 @@ export class AuthComponent {
   }
 
   register() {
-    console.log('Registering user', this.name, this.email, this.password);
     this.authService.createUser(this.name, this.email, this.password).subscribe(response => {
       console.log('Registration successful', response);
       if (response.name) {

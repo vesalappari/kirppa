@@ -42,8 +42,10 @@ export class HeaderComponent {
   }
 
   logout() {
-    this.authService.logout();
     this.closeModal();
-    this.router.navigate(['/frontpage']);
+    setTimeout(() => {
+      this.authService.logout();
+      this.router.navigate(['/frontpage']);
+    }, 300);
   }
 }

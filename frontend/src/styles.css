@@ -350,6 +350,12 @@ footer {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     max-width: 400px;
+    min-width: 300px;
+}
+
+.account-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .login-button {

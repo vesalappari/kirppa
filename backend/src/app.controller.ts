@@ -1,9 +1,9 @@
-import { 
-  Controller, 
-  Get, 
-  Post, 
-  Body, 
-  BadRequestException 
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  BadRequestException,
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { User } from './user.entity';

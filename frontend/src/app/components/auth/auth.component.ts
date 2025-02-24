@@ -37,10 +37,10 @@ export class AuthComponent {
         }, 1500);
       }
     }, error => {
-      this.loginResponse = "Login failed";
+      this.loginResponse = error.error.message;
       setTimeout(() => {
         this.loginResponse = '';
-      }, 1500);
+      }, 3000);
       console.error('Login failed', error);
     });
   }

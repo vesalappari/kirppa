@@ -25,7 +25,12 @@ export class HeaderComponent {
   }
 
   navigateToFrontpage() {
-    this.router.navigate(['/frontpage']);
+    if (this.isModalOpen) {
+      this.closeModal();
+    }
+    setTimeout(() => {
+      this.router.navigate(['/frontpage']);
+    }, 300);
   }
 
   openModal() {

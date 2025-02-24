@@ -1,20 +1,36 @@
 <div class="main-container">
-        <div class="auth-form" *ngIf="!isRegister">
-            <h2>Kirjaudu</h2>
-            <input type="email" placeholder="Email" [(ngModel)]="email" required>
-            <input type="password" placeholder="Password" [(ngModel)]="password" required="">
-            <button (click)="login()">Kirjaudu sisään</button>
-            <button (click)="toggleRegister()">Ei tunnusta - rekisteröidy</button>
-            <p *ngIf="loginResponse">{{loginResponse}}</p>
-        </div>
-        
-        <div class="auth-form" *ngIf="isRegister">
-            <h2>Rekisteröidy</h2>
-            <input type="text" placeholder="Name" [(ngModel)]="name" required>
-            <input type="email" placeholder="Email" [(ngModel)]="email" required>
-            <input type="password" placeholder="Password" [(ngModel)]="password" required>
-            <button (click)="register()">Rekisteröidy</button>
-            <button (click)="toggleRegister()">Olen jo käyttäjä - Kirjaudu</button>
-            <p *ngIf="regResponse">{{regResponse}}</p>
-        </div>
+    <div class="auth-form" *ngIf="!isRegister">
+        <h2>Kirjaudu</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+            <input type="email" placeholder="abc@abc.fi" formControlName="email" required>
+            <input type="password" placeholder="Salasana" formControlName="password" required>
+            <button type="submit" [disabled]="loginForm.invalid">Kirjaudu sisään</button>
+        </form>
+        <button (click)="toggleRegister()">Ei tunnusta - rekisteröidy</button>
+        <p *ngIf="loginResponse">{{loginResponse}}</p>
+    </div>
+    
+    <div class="auth-form" *ngIf="isRegister">
+        <h2>Rekisteröidy</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+            <input type="text" placeholder="Name" formControlName="name" required>
+            <p *ngIf="registerForm.get('name')?.invalid; else  nameChecked">Vähintään kaksi merkkiä</p>
+            <ng-template #nameChecked>
+                <p>✅</p>
+            </ng-template>
+            <input type="email" placeholder="Email" formControlName="email" required>
+            <p *ngIf="registerForm.get('email')?.invalid; else emailChecked">Kirjoita sähköpostiosoite</p>
+            <ng-template #emailChecked>
+                <p>✅</p>
+            </ng-template>
+            <input type="password" placeholder="Password" formControlName="password" required>
+            <p *ngIf="registerForm.get('password')?.invalid; else passwordChecked">8 merkkiä, yksi numero ja yksi erikoismerkki</p>
+            <ng-template #passwordChecked>
+                <p>✅</p>
+            </ng-template>
+            <button type="submit" [disabled]="registerForm.invalid">Rekisteröidy</button>
+        </form>
+        <button (click)="toggleRegister()">Olen jo käyttäjä - Kirjaudu</button>
+        <p *ngIf="regResponse">{{regResponse}}</p>
+    </div>
 </div>

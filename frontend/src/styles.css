@@ -291,6 +291,7 @@ footer {
 
 .auth-form {
     max-width: 400px;
+    min-width: 300px;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -318,7 +319,7 @@ footer {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    box-sizing: border-box;
+    width: 90%;
     margin-block: 5px;
 }
 
@@ -338,6 +339,18 @@ footer {
 .auth-form button:hover {
     background-color: #45a049;
     transform: scale(1.05);
+}
+
+.auth-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.auth-form p {
+    text-align: start;
+    margin-inline: 10px;
+    margin-top: 5px;
+    font-size: small;
 }
 
 .account-container {

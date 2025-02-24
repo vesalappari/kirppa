@@ -1,6 +1,10 @@
 <nav>
-    <a routerLink="/my-products">Tuotteeni</a>
-    <a routerLink="/statistics">Myyntitilasto</a>
-    <a routerLink="/contact">Ota yhteyttä</a>
-    <a routerLink="/account">Käyttäjätili</a>
+    <a routerLink="/my-products"
+        (click)="closeModal()">Tuotteeni</a>
+    <a routerLink="/statistics"
+        (click)="closeModal()">Myyntitilasto</a>
+    <a routerLink="/contact"
+        (click)="closeModal()">Ota yhteyttä</a>
+    <a routerLink="/account"
+        (click)="closeModal()">Käyttäjätili</a>
 </nav>

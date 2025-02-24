@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -32,7 +32,12 @@ export class AuthComponent {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])/)]]
+      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])/)]],
+      password2: ['', [Validators.required, this.passwordMatchValidator()]]
+    });
+
+    this.registerForm.get('password')?.valueChanges.subscribe(() => {
+      this.registerForm.get('password2')?.updateValueAndValidity();
     });
   }
 
@@ -81,5 +86,17 @@ export class AuthComponent {
 
   toggleRegister() {
     this.isRegister = !this.isRegister;
+  }
+
+  passwordMatchValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const password = this.registerForm?.get('password')?.value;
+      const password2 = control.value;
+
+      if (password && password2 && password !== password2) {
+        return { passwordMismatch: true };
+      }
+      return null;
+    };
   }
 }

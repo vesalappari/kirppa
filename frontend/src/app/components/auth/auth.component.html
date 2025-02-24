@@ -13,19 +13,24 @@
     <div class="auth-form" *ngIf="isRegister">
         <h2>Rekisteröidy</h2>
         <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
-            <input type="text" placeholder="Name" formControlName="name" required>
+            <input type="text" placeholder="Nimi" formControlName="name" required>
             <p *ngIf="registerForm.get('name')?.invalid; else  nameChecked">Vähintään kaksi merkkiä</p>
             <ng-template #nameChecked>
                 <p>✅</p>
             </ng-template>
-            <input type="email" placeholder="Email" formControlName="email" required>
+            <input type="email" placeholder="Sähköposti" formControlName="email" required>
             <p *ngIf="registerForm.get('email')?.invalid; else emailChecked">Kirjoita sähköpostiosoite</p>
             <ng-template #emailChecked>
                 <p>✅</p>
             </ng-template>
-            <input type="password" placeholder="Password" formControlName="password" required>
+            <input type="password" placeholder="Salasana" formControlName="password" required>
             <p *ngIf="registerForm.get('password')?.invalid; else passwordChecked">8 merkkiä, yksi numero ja yksi erikoismerkki</p>
             <ng-template #passwordChecked>
+                <p>✅</p>
+            </ng-template>
+            <input type="password" placeholder="Salasana uudelleen" formControlName="password2" required>
+            <p *ngIf="registerForm.get('password2')?.invalid; else password2Checked">Kirjoita salasana uudelleen</p>
+            <ng-template #password2Checked>
                 <p>✅</p>
             </ng-template>
             <button type="submit" [disabled]="registerForm.invalid">Rekisteröidy</button>

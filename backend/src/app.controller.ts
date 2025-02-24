@@ -1,4 +1,10 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { 
+  Controller, 
+  Get, 
+  Post, 
+  Body, 
+  BadRequestException 
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { User } from './user.entity';
 
@@ -22,6 +28,19 @@ export class AppController {
     @Body('email') email: string,
     @Body('password') password: string,
   ): Promise<User> {
+    if (name.length <= 1) {
+      throw new BadRequestException('At least two characters');
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      throw new BadRequestException('Invalid email format');
+    }
+
+    const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])/;
+    if (password.length < 8 || !passwordRegex.test(password)) {
+      throw new BadRequestException('Invalid password');
+    }
     return this.appService.createUser(name, email, password);
   }
 

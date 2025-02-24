@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { User } from '../models/user.model';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  imports: [CommonModule]
+  imports: [CommonModule, NavbarComponent]
 })
 export class HeaderComponent {
   isModalOpen = false;
@@ -20,9 +21,7 @@ export class HeaderComponent {
   ) {}
 
   ngOnInit() {
-    this.authService.user?.subscribe(user => {
-      this.user = user;
-    });
+    this.authService.getCurrentUser().subscribe(user => this.user = user);
   }
 
   navigateToFrontpage() {
@@ -44,5 +43,7 @@ export class HeaderComponent {
 
   logout() {
     this.authService.logout();
+    this.closeModal();
+    this.router.navigate(['/frontpage']);
   }
 }

@@ -32,6 +32,7 @@ export class AuthService {
 
   logout() {
     this.userSubject.next(null);
+    this.resetUser();
   }
 
   getCurrentUser(): Observable<User | null> {
@@ -40,5 +41,9 @@ export class AuthService {
 
   setCurrentUser(user: User): void {
     this.currentUserSubject.next(user);
+  }
+
+  resetUser() {
+    this.currentUserSubject.next(null);
   }
 }

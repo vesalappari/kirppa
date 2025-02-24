@@ -8,9 +8,13 @@
 <div class="modal" [class.open]="isModalOpen">
   <div class="modal-content">
     <span class="close" (click)="closeModal()">&times;</span>
-    <button *ngIf="!user?.name" (click)="showAuth()">Login</button>
-    <button *ngIf="user?.name" (click)="logout()">Logout</button>
-    <p *ngIf="user?.name">{{user}}</p>
-    <!-- <button (click)="navigateToProfile()">Profile</button> -->
+    <button *ngIf="!user?.name" 
+      (click)="showAuth()"
+      class="login-button">Kirjaudu sisään</button>
+    <button *ngIf="user?.name" 
+      (click)="logout()"
+      class="logout-button">Kirjaudu ulos</button>
+    <p class="user-name" *ngIf="user?.name">👤 {{user?.name}}</p>
+    <app-navbar *ngIf="user?.name"></app-navbar>
   </div>
 </div>

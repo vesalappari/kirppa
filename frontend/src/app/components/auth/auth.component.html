@@ -1,5 +1,4 @@
 <div class="main-container">
-    <div class="auth-container">
         <div class="auth-form" *ngIf="!isRegister">
             <h2>Kirjaudu</h2>
             <input type="email" placeholder="Email" [(ngModel)]="email" required>
@@ -11,12 +10,11 @@
         
         <div class="auth-form" *ngIf="isRegister">
             <h2>Rekisteröidy</h2>
-            <input type="text" placeholder="Name" [(ngModel)]="name">
-            <input type="email" placeholder="Email" [(ngModel)]="email">
-            <input type="password" placeholder="Password" [(ngModel)]="password">
+            <input type="text" placeholder="Name" [(ngModel)]="name" required>
+            <input type="email" placeholder="Email" [(ngModel)]="email" required>
+            <input type="password" placeholder="Password" [(ngModel)]="password" required>
             <button (click)="register()">Rekisteröidy</button>
             <button (click)="toggleRegister()">Olen jo käyttäjä - Kirjaudu</button>
             <p *ngIf="regResponse">{{regResponse}}</p>
         </div>
-    </div>
 </div>

@@ -11,6 +11,7 @@ import { CreateProductComponent } from "./create-product/create-product.componen
   styleUrl: '../../../styles.css'
 })
 export class MyProductsComponent {
+  showProducts: boolean = false;
   showImages: boolean = true;
   products = [
     { imageUrl: 'img/vintage_shirt.jpeg', altText: 'Vintage T-Shirt', title: 'Vintage T-paita', price: '10€', status: '✅' },
@@ -24,4 +25,8 @@ export class MyProductsComponent {
     { imageUrl: 'img/handbag.jpeg', altText: 'Handbag', title: 'Käsilaukku', price: '20€', status: '🏷️' },
     { imageUrl: 'img/candle_holder.jpeg', altText: 'Home Decor', title: 'Kynttilänjalka', price: '15€', status: '🏷️' }
   ];
+
+  toggleProducts() {
+    this.showProducts = !this.showProducts;
+  }
 }

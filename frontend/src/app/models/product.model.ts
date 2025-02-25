@@ -1,4 +1,4 @@
-export interface User {
+export interface Product {
     owner_id: number;
     name: string;
     description: string;

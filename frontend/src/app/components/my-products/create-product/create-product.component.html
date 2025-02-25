@@ -1,1 +1,10 @@
-<p>create-product works!</p>
+<div class="create-product">
+    <form (ngSubmit)="createProduct()">
+        <input type="text" id="name" placeholder="Tuotenimi" [(ngModel)]="product.name" name="name" required>
+        <textarea id="description" placeholder="Tuotekuvaus" [(ngModel)]="product.description" name="description" required minlength="1" maxlength="30"></textarea>
+        <input type="number" id="price" placeholder="Hinta €" [(ngModel)]="product.price" name="price" required value="">
+        <input type="text" id="category" placeholder="Tuotekategoria" [(ngModel)]="product.category" name="category" required>
+        <button type="submit">Lisää tuote</button>
+      </form>
+</div>
+

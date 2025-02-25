@@ -6,7 +6,7 @@ import {
   BadRequestException,
 } from '@nestjs/common';
 import { AppService } from './app.service';
-import { User } from './user.entity';
+import { User } from './entitys/user.entity';
 
 @Controller()
 export class AppController {
@@ -37,7 +37,7 @@ export class AppController {
       throw new BadRequestException('Invalid email format');
     }
 
-    const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])/;
+    const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$€%^&*?])/;
     if (password.length < 8 || !passwordRegex.test(password)) {
       throw new BadRequestException('Invalid password');
     }

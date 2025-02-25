@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { HelloController } from './hello.controller';
-import { User } from './user.entity';
+import { User } from './entitys/user.entity';
 import ormconfig from './ormconfig';
 import { AuthModule } from './auth/auth.module';
 

@@ -24,7 +24,7 @@
                 <p>✅</p>
             </ng-template>
             <input type="password" placeholder="Salasana" formControlName="password" required>
-            <p *ngIf="registerForm.get('password')?.invalid; else passwordChecked">8 merkkiä, yksi numero ja yksi erikoismerkki</p>
+            <p *ngIf="registerForm.get('password')?.invalid; else passwordChecked">8+ merkkiä, numero ja erikoismerkki (!&#64;#$€%^&*?)</p>
             <ng-template #passwordChecked>
                 <p>✅</p>
             </ng-template>

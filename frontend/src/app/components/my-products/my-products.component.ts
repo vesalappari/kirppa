@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ProductComponent } from "./product/product.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CreateProductComponent } from "./create-product/create-product.component";
 
 @Component({
   selector: 'app-my-products',
-  imports: [ProductComponent, FormsModule, CommonModule],
+  imports: [ProductComponent, FormsModule, CommonModule, CreateProductComponent],
   templateUrl: './my-products.component.html',
   styleUrl: '../../../styles.css'
 })

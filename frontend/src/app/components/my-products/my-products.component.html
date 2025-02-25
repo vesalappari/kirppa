@@ -2,9 +2,8 @@
     <label class="show-images-label">
         <input type="checkbox" [(ngModel)]="showImages"> Näytä kuvat
     </label>
-    <section class="sales-items">
-        <section class="items">
-            <section class="sales-items">
+        <div class="items">
+            <div class="sales-items">
                 <app-product
                     *ngFor="let product of products"
                     [imageUrl]="product.imageUrl"
@@ -14,7 +13,6 @@
                     [status]="product.status"
                     [showImage]="showImages">
                 </app-product>
-            </section>
-        </section>
-    </section>
+            </div>
+        </div>
 </div>

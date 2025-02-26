@@ -31,6 +31,8 @@ export class CreateProductComponent implements OnInit {
     email: ''
   };
 
+  categories = ['clothing', 'toys', 'games', 'books', 'other'];
+
   constructor(
     private productService: ProductService,
     private authService: AuthService,

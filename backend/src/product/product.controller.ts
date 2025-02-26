@@ -3,8 +3,8 @@ import {
   Get,
   Post,
   Body,
-  /*
   Param,
+  /*
   Delete,
   Put,
     */
@@ -22,12 +22,12 @@ export class ProductController {
     return this.productService.getAllProducts();
   }
 
-  /*
-  @Get(':id')
-  async getProductById(@Param('id') id: number): Promise<ProductModel> {
-    return this.productService.getProductById(id);
+  @Get(':ownerId')
+  async getProductsByOwnerId(
+    @Param('ownerId') ownerId: number,
+  ): Promise<Product[]> {
+    return await this.productService.getProductsByOwnerId(ownerId);
   }
-    */
 
   @Post('create')
   async createProduct(@Body() product: ProductModel): Promise<ProductModel> {

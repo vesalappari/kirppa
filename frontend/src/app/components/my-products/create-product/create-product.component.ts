@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { User } from '../../../models/user.model';
+import { MyProductsComponent } from '../my-products.component';
 
 @Component({
   selector: 'app-create-product',
@@ -32,7 +33,8 @@ export class CreateProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private authService: AuthService
+    private authService: AuthService,
+    private myProductsComponent: MyProductsComponent
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +48,9 @@ export class CreateProductComponent implements OnInit {
 
   createProduct() {
     this.productService.createProduct(this.product).subscribe(response => {
+      if (response) {
+        this.myProductsComponent.updateProducts();
+      }
       console.log('Product created successfully', response);
     }, error => {
       console.error('Error creating product', error);

@@ -9,9 +9,9 @@
             <div class="sales-items">
                 <app-product
                     *ngFor="let product of products"
-                    [imageUrl]="product.imageUrl"
-                    [altText]="product.altText"
-                    [title]="product.title"
+                    [imageUrl]="product.image_url"
+                    [altText]="product.description"
+                    [title]="product.name"
                     [price]="product.price"
                     [status]="product.status"
                     [showImage]="showImages">

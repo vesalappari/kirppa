@@ -12,7 +12,7 @@ export class ProductComponent {
   @Input() imageUrl: string | undefined;
   @Input() altText: string | undefined;
   @Input() title: string | undefined;
-  @Input() price: string | undefined;
+  @Input() price: number | undefined;
   @Input() status: string | undefined;
   @Input() showImage: boolean = true;
 }

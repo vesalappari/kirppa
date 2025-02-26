@@ -15,15 +15,22 @@ export class ProductService {
     return this.productsRepository.find();
   }
 
-  /*
-  getProductById(id: number): Promise<ProductModel> {
+  async getProductsByOwnerId(ownerId: number): Promise<Product[]> {
+    const products = this.productsRepository.find({
+      where: { owner_id: ownerId },
+    });
+    if ((await products).length > 0) {
+      return products;
+    }
+    return Promise.reject(new Error('Products not found'));
+  }
+  /* getProductsById(id: number): Promise<ProductModel> {
     const product = this.products.find((product) => product.id_number === id);
     if (product) {
       return Promise.resolve(product);
     }
     return Promise.reject(new Error('Product not found'));
-  }
-    */
+  } */
 
   async createProduct(product: ProductModel): Promise<Product> {
     const new_product = this.productsRepository.create(product);

@@ -17,4 +17,9 @@ export class ProductService {
     console.log(this.apiUrl);
     return this.http.post(`${this.apiUrl}/products/create`, product);
   }
+
+  async getProductsById(id: number): Promise<Product[]> {
+    const products = await this.http.get<Product[]>(`${this.apiUrl}/products/${id}`).toPromise();
+    return products || [];
+  }
 }

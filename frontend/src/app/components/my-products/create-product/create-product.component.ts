@@ -3,6 +3,9 @@ import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../models/product.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { OnInit } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
+import { User } from '../../../models/user.model';
 
 @Component({
   selector: 'app-create-product',
@@ -10,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./create-product.component.css'],
   imports: [CommonModule, FormsModule]
 })
-export class CreateProductComponent {
+export class CreateProductComponent implements OnInit {
   product: Product = {
     owner_id: 0,
     name: '',
@@ -21,7 +24,25 @@ export class CreateProductComponent {
     image_url: 'url'
   };
 
-  constructor(private productService: ProductService) {}
+  user: User = {
+    id: 0,
+    name: '',
+    email: ''
+  };
+
+  constructor(
+    private productService: ProductService,
+    private authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
+    this.authService.getCurrentUser().subscribe(user => {
+      if (user) {
+        this.user = user;
+        this.product.owner_id = this.user.id;
+      }
+    });
+  }
 
   createProduct() {
     this.productService.createProduct(this.product).subscribe(response => {

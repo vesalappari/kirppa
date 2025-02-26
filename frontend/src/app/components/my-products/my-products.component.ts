@@ -12,7 +12,7 @@ import { CreateProductComponent } from "./create-product/create-product.componen
 })
 export class MyProductsComponent {
   showProducts: boolean = false;
-  showImages: boolean = true;
+  showImages: boolean = false;
   products = [
     { imageUrl: 'img/vintage_shirt.jpeg', altText: 'Vintage T-Shirt', title: 'Vintage T-paita', price: '10€', status: '✅' },
     { imageUrl: 'img/leather_jacket.jpeg', altText: 'Leather Jacket', title: 'Nahkatakki', price: '50€', status: '✅' },

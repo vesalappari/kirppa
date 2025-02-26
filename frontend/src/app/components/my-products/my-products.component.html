@@ -1,12 +1,12 @@
 <div class="main-container">
-    <button (click)="toggleProducts()" class="show-product-button">Näytä tuotteet</button>
+    <button (click)="toggleProducts()" class="show-product-button">Näytä/Piilota tuotteet</button>
     <div *ngIf="products.length > 0 && showProducts" class="products-selection">
-        <label class="show-images-label">
+        <app-create-product></app-create-product>
+        <label class="show-label">
             <input type="checkbox" [(ngModel)]="showImages"> Näytä kuvat
         </label>
         <div class="items">
             <div class="sales-items">
-                <app-create-product></app-create-product>
                 <app-product
                     *ngFor="let product of products"
                     [imageUrl]="product.imageUrl"

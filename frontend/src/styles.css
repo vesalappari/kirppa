@@ -229,7 +229,7 @@ nav a:hover {
     border-radius: 10px;
 }
 
-.show-images-label {
+.show-label {
     display: flex;
     justify-content: center;
     align-items: center;

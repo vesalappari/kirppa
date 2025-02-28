@@ -8,7 +8,10 @@
             <option value="" disabled selected hidden>Tuotekategoria</option>
             <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
         </select>
-        <button type="submit">Lisää tuote</button>
+        <button *ngIf="!productResponse;  else response" type="submit">Lisää tuote</button>
+        <ng-template #response>
+            <p>{{ productResponse }}</p>
+        </ng-template>
       </form>
 </div>
 

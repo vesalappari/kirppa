@@ -33,6 +33,8 @@ export class CreateProductComponent implements OnInit {
 
   categories = ['clothing', 'toys', 'games', 'books', 'other'];
 
+  productResponse: string = '';
+
   constructor(
     private productService: ProductService,
     private authService: AuthService,
@@ -40,6 +42,11 @@ export class CreateProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.resetForm();
+    this.updateUser();
+  }
+
+  updateUser() {
     this.authService.getCurrentUser().subscribe(user => {
       if (user) {
         this.user = user;
@@ -48,10 +55,27 @@ export class CreateProductComponent implements OnInit {
     });
   }
 
+  resetForm() {
+    this.product = {
+      owner_id: 0,
+      name: '',
+      description: '',
+      price: null as any as number,
+      category: '',
+      status: 'available',
+      image_url: 'url'
+    };
+  }
+
   createProduct() {
     this.productService.createProduct(this.product).subscribe(response => {
-      if (response) {
+      if (response.name) {
         this.myProductsComponent.updateProducts();
+        this.productResponse = 'Lisättiin ' + response.name;
+        setTimeout(() => {
+          this.productResponse = "";
+        }, 2000);
+        this.resetForm();
       }
       console.log('Product created successfully', response);
     }, error => {
